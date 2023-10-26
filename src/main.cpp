@@ -28,7 +28,7 @@ void calibrate_sensors() {
 void follow_line() {
   int16_t position = lineSensors.readLine(line_sensor_values);       // Reads the position
   int16_t error = position - 2000;                                   // Adjust the ideal position to 0 intstead of 2000
-  int16_t speed_difference = error / 3 + 8 * (error - last_error);   // Speed difference. Ref: 3 + 4
+  int16_t speed_difference = error / 3 + 8 * (error - last_error);   // Speed difference. Default: 3 + 4
   last_error = error;                                                
   
   int16_t left_speed = (int16_t)max_speed + speed_difference;
